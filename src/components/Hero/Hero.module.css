@@ -1,0 +1,232 @@
+.hero {
+  width: 100%;
+}
+
+.container {
+  position: relative;
+  margin: 0 auto;
+  max-width: var(--container);
+  height: calc(100vh - 70px);
+  min-height: 560px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  display: flex;
+  padding: 32px 24px 85px;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  border-radius: 24px;
+  background-color: #efebff;
+  background-image: radial-gradient(
+      at 81.67364903798222% 0%,
+      hsla(267, 76%, 84%, 1) 0px,
+      transparent 50%
+    ),
+    radial-gradient(
+      at 36.06169308461875% 67.27302122185729%,
+      hsla(180, 100%, 87%, 1) 0px,
+      transparent 50%
+    ),
+    radial-gradient(
+      at 0% 1.2025102699732102%,
+      hsla(277, 100%, 78%, 1) 0px,
+      transparent 50%
+    ),
+    radial-gradient(
+      at 4.675301299876857% 98.91214140800518%,
+      hsla(236, 90%, 80%, 1) 0px,
+      transparent 50%
+    ),
+    radial-gradient(
+      at 100% 29.265500333411932%,
+      hsla(222, 89%, 70%, 1) 0px,
+      transparent 50%
+    ),
+    radial-gradient(
+      at 54.97119952021575% 0%,
+      hsla(277, 97%, 87%, 1) 0px,
+      transparent 50%
+    ),
+    radial-gradient(
+      at 41.930134133346314% 94.90431743799135%,
+      hsla(194, 99%, 73%, 1) 0px,
+      transparent 50%
+    );
+  transition: background-position 1176.4705882352941s ease;
+  animation: gradient-animation 1176.4705882352941s ease infinite;
+
+  @media (min-width: 1408px) {
+    max-width: var(--desktop);
+  }
+}
+
+@keyframes gradient-animation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.hero_header {
+  color: var(--main_text_color);
+  font-size: var(--fs_xlarge);
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}
+
+.hero_text {
+  font-size: 12px;
+  line-height: 150%;
+  font-weight: 400;
+  margin-bottom: 24px;
+}
+
+.input_wrap {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  align-items: center;
+  width: 100%;
+}
+
+.search_icon {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  z-index: 2;
+}
+
+.input {
+  z-index: 1;
+  width: 100%;
+  border: none;
+  outline: none;
+  padding: 13px 13px 13px 48px;
+  border-radius: 100px;
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(30px);
+  color: var(--main_text_color);
+  font-size: var(--fs_small);
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%;
+  box-shadow: var(--box_shadow);
+}
+
+.input::placeholder {
+  font-size: var(--fs_small);
+  color: #666;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 300;
+  line-height: 150%;
+}
+
+.input:focus,
+.input:hover {
+  outline: none;
+}
+
+.info_container {
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 66px 16px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  border-radius: 28px;
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(30px);
+}
+
+.cert_image {
+  width: 128px;
+  height: 90px;
+  background-color: black;
+  margin-bottom: 4px;
+}
+
+.name {
+  font-size: var(--fs_small);
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+
+  & span {
+    font-size: var(--fs_small);
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+  }
+}
+
+.thread,
+.period,
+.status {
+  font-size: var(--fs_small);
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  & span {
+    font-size: var(--fs_small);
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    white-space: nowrap;
+  }
+}
+
+.period {
+  & span {
+    display: block;
+    margin-top: 4px;
+  }
+}
+
+.status_valid {
+  padding: 4px 12px;
+  gap: 10px;
+  border-radius: 100px;
+  background: rgba(0, 185, 25, 0.1);
+  color: #00b919;
+  text-align: center;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+
+.status_discontinued {
+  padding: 4px 12px;
+  gap: 10px;
+  border-radius: 100px;
+  background: rgba(213, 153, 0, 0.1);
+  color: #d59900;
+  text-align: center;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+.status_cancelled {
+  padding: 4px 12px;
+  gap: 10px;
+  border-radius: 100px;
+  background: rgba(213, 1, 1, 0.1);
+  color: #d50101;
+  text-align: center;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}

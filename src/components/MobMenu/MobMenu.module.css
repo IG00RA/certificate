@@ -1,0 +1,86 @@
+.mobile_wrap {
+  display: flex;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 350ms ease-in-out;
+}
+
+.mobile_menu_open {
+  position: fixed;
+  top: 0;
+  left: 0;
+  transform: scaleX(1);
+  transform-origin: left;
+  z-index: 1000;
+  width: 100vh;
+  height: 100vh;
+  background-color: var(--modal_overlay);
+}
+
+.burger_menu {
+  width: 84vw;
+  height: 100vh;
+  background-color: var(--background);
+  padding: 12px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+}
+
+.logo_wrap {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.logo {
+  width: 40px;
+  height: 33px;
+}
+
+.logo_text {
+  color: var(--main_text_color);
+  font-size: var(--fs_small);
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}
+
+.links {
+  display: flex;
+  gap: 12px;
+  flex-direction: column;
+}
+
+.link {
+  color: var(--main_text_color);
+  font-size: var(--fs_xsmall);
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%;
+  transition: color 0.3s ease-in-out;
+
+  &:hover,
+  &:focus {
+    color: var(--primary_color);
+  }
+}
+
+.social {
+  display: flex;
+  gap: 24px;
+  align-items: center;
+  margin-bottom: 16px;
+
+  & svg {
+    transition: fill 0.3s ease-in-out;
+
+    &:hover,
+    &:focus {
+      fill: var(--main_text_color);
+    }
+  }
+}
