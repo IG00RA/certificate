@@ -56,6 +56,19 @@
   transition: background-position 1176.4705882352941s ease;
   animation: gradient-animation 1176.4705882352941s ease infinite;
 
+  @media (min-width: 768px) {
+    padding: 60px 80px;
+  }
+
+  @media (min-width: 1024px) {
+    border-radius: 40px;
+    padding: 120px 80px;
+  }
+
+  @media (min-width: 1368px) {
+    padding: 156px 116px;
+  }
+
   @media (min-width: 1408px) {
     max-width: var(--desktop);
   }
@@ -79,6 +92,26 @@
   font-style: normal;
   font-weight: 600;
   line-height: normal;
+
+  @media (min-width: 460px) {
+    max-width: 400px;
+    text-align: center;
+  }
+
+  @media (min-width: 768px) {
+    max-width: 550px;
+    font-size: 42px;
+  }
+
+  @media (min-width: 1024px) {
+    max-width: 900px;
+
+    font-size: var(--fs_mxlarge);
+  }
+
+  @media (min-width: 1368px) {
+    font-size: var(--fs_xxlarge);
+  }
 }
 
 .hero_text {
@@ -86,6 +119,26 @@
   line-height: 150%;
   font-weight: 400;
   margin-bottom: 24px;
+
+  @media (min-width: 460px) {
+    max-width: 380px;
+    text-align: center;
+  }
+
+  @media (min-width: 768px) {
+    max-width: 500px;
+  }
+
+  @media (min-width: 1024px) {
+    max-width: 800px;
+    font-size: var(--fs_small);
+    margin-bottom: 30px;
+  }
+
+  @media (min-width: 1368px) {
+    margin-bottom: 40px;
+    font-size: var(--fs_xsmall);
+  }
 }
 
 .input_wrap {
@@ -95,6 +148,18 @@
   gap: 16px;
   align-items: center;
   width: 100%;
+  margin: 0 auto;
+  max-width: 350px;
+
+  @media (min-width: 768px) {
+    max-width: 584px;
+    & button {
+      position: absolute;
+      top: 0;
+      right: 0;
+      z-index: 2;
+    }
+  }
 }
 
 .search_icon {
@@ -102,6 +167,10 @@
   top: 12px;
   left: 12px;
   z-index: 2;
+  @media (min-width: 1024px) {
+    top: 16px;
+    left: 16px;
+  }
 }
 
 .input {
@@ -119,6 +188,15 @@
   font-weight: 400;
   line-height: 150%;
   box-shadow: var(--box_shadow);
+
+  @media (min-width: 768px) {
+    padding: 13px 180px 13px 48px;
+  }
+
+  @media (min-width: 1024px) {
+    padding: 16px 180px 16px 56px;
+    font-size: var(--fs_xsmall);
+  }
 }
 
 .input::placeholder {
@@ -128,6 +206,9 @@
   font-style: normal;
   font-weight: 300;
   line-height: 150%;
+  @media (min-width: 1024px) {
+    font-size: var(--fs_xsmall);
+  }
 }
 
 .input:focus,
@@ -147,13 +228,42 @@
   border-radius: 28px;
   background: rgba(255, 255, 255, 0.8);
   backdrop-filter: blur(30px);
+
+  @media (min-width: 768px) {
+    flex-direction: row;
+    gap: 12px;
+  }
+  @media (min-width: 1024px) {
+    padding: 81px 24px 24px;
+    gap: 24px;
+  }
 }
 
 .cert_image {
   width: 128px;
-  height: 90px;
+  height: auto;
+  aspect-ratio: 128/90;
   background-color: black;
   margin-bottom: 4px;
+
+  @media (min-width: 768px) {
+    width: 160px;
+  }
+
+  @media (min-width: 1024px) {
+    width: 181px;
+  }
+}
+
+.info_wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+
+  @media (min-width: 1024px) {
+    padding: 9px 0;
+    gap: 12px;
+  }
 }
 
 .name {
@@ -188,7 +298,7 @@
 
 .period {
   & span {
-    display: block;
+    display: inline-block;
     margin-top: 4px;
   }
 }

@@ -8,6 +8,8 @@ import { useState } from 'react';
 import { useTranslations } from 'next-intl';
 import Image from 'next/image';
 import logo from '@/img/logo.svg';
+import SecondaryButton from '../Buttons/SecondaryButton';
+import { linkItems, socialItems } from '@/data/data';
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -26,33 +28,55 @@ export default function Header() {
 
   return (
     <header className={`${styles.header}`}>
-      <Link className={styles.logo_wrap} href={`/`}>
-        <Image
-          className={styles.logo}
-          src={logo}
-          width={0}
-          height={0}
-          sizes="100vw"
-          alt="Mustage Team logo"
-          priority
-        />
-        <span className={styles.logo_text}>MUSTAGE.TEAM</span>
-      </Link>
-
+      <div className={`${styles.header_social}`}>
+        <Link className={styles.logo_wrap} href={`/`}>
+          <Image
+            className={styles.logo}
+            src={logo}
+            width={0}
+            height={0}
+            sizes="100vw"
+            alt="Mustage Team logo"
+            priority
+          />
+          <span className={styles.logo_text}>MUSTAGE.TEAM</span>
+        </Link>
+        <ul className={styles.social}>
+          {socialItems.map((item, index) => (
+            <li key={index}>
+              <a href={item.link} target="_blank" rel="noopener noreferrer">
+                <Icon name={item.icon} color="#a3a3a3" width={24} height={24} />
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
       <div className={`${styles.nav_wrap}`}>
-        <div
-          className={`${styles.burger_wrap} ${
-            isMenuOpen ? styles.burger_open : ''
-          }`}
-          onClick={isMenuOpen ? closeMenu : openMenu}
-        >
-          <span className={styles.line}></span>
-          <span className={styles.line}></span>
-          <span className={styles.line}></span>
-        </div>
-        {/* <Link className={styles.main_button} href={`/`}>
-          {t('Buttons.main')}
-        </Link> */}
+        <ul className={styles.links}>
+          {linkItems.map((item, index) => (
+            <li key={index}>
+              <a
+                href={item.href}
+                className={styles.link}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                {t(item.label)}
+              </a>
+            </li>
+          ))}
+        </ul>
+        <SecondaryButton />
+      </div>
+      <div
+        className={`${styles.burger_wrap} ${
+          isMenuOpen ? styles.burger_open : ''
+        }`}
+        onClick={isMenuOpen ? closeMenu : openMenu}
+      >
+        <span className={styles.line}></span>
+        <span className={styles.line}></span>
+        <span className={styles.line}></span>
       </div>
 
       <MobMenu isMenuOpen={isMenuOpen} closeMenu={closeMenu} />

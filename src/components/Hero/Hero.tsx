@@ -11,7 +11,7 @@ export default function Hero() {
   const t = useTranslations('');
 
   const [certificate, setCertificate] = useState('');
-  const [isVisible, setIsVisible] = useState(false);
+  const [isVisible, setIsVisible] = useState(true);
   const [certificateStatus, setCertificateStatus] = useState('valid');
 
   return (
@@ -40,31 +40,35 @@ export default function Hero() {
           {isVisible && (
             <div className={styles.info_container}>
               <div className={styles.cert_image}></div>
-              <p className={styles.name}>
-                Andrey Dumchev <span>(@nickname)</span>
-              </p>
-              <p className={styles.thread}>
-                {t('Hero.thread')} <span>024</span>
-              </p>
-              <p className={styles.period}>
-                {t('Hero.period')} <span>12.01.2025 - 12.02.2025</span>
-              </p>
-              <p className={styles.status}>
-                {t('Hero.status')}{' '}
-                {certificateStatus === 'valid' && (
-                  <span className={styles.status_valid}>{t('Hero.valid')}</span>
-                )}
-                {certificateStatus === 'discontinued' && (
-                  <span className={styles.status_discontinued}>
-                    {t('Hero.discontinued')}
-                  </span>
-                )}
-                {certificateStatus === 'cancelled' && (
-                  <span className={styles.status_cancelled}>
-                    {t('Hero.cancelled')}
-                  </span>
-                )}
-              </p>
+              <div className={styles.info_wrap}>
+                <p className={styles.name}>
+                  Andrey Dumchev <span>(@nickname)</span>
+                </p>
+                <p className={styles.thread}>
+                  {t('Hero.thread')} <span>024</span>
+                </p>
+                <p className={styles.period}>
+                  {t('Hero.period')} <span>12.01.2025 - 12.02.2025</span>
+                </p>
+                <p className={styles.status}>
+                  {t('Hero.status')}{' '}
+                  {certificateStatus === 'valid' && (
+                    <span className={styles.status_valid}>
+                      {t('Hero.valid')}
+                    </span>
+                  )}
+                  {certificateStatus === 'discontinued' && (
+                    <span className={styles.status_discontinued}>
+                      {t('Hero.discontinued')}
+                    </span>
+                  )}
+                  {certificateStatus === 'cancelled' && (
+                    <span className={styles.status_cancelled}>
+                      {t('Hero.cancelled')}
+                    </span>
+                  )}
+                </p>
+              </div>
             </div>
           )}
           <MainButton />

@@ -38,6 +38,11 @@
   }
 
   @media (min-width: 1024px) {
+    font-size: var(--fs_small);
+    padding: 12px 16px;
+  }
+  @media (min-width: 1200px) {
+    font-size: var(--fs_xsmall);
     padding: 16px 32px;
   }
 }
