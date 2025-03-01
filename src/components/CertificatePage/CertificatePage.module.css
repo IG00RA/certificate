@@ -1,4 +1,4 @@
-.hero {
+.section {
   width: 100%;
 }
 
@@ -9,14 +9,13 @@
   padding: 24px 16px;
   border-radius: 24px;
   background-color: var(--foreground);
-
   @media (min-width: 768px) {
-    padding: 60px 80px;
+    padding: 20px;
   }
 
   @media (min-width: 1024px) {
     border-radius: 40px;
-    padding: 30px 64px 44px;
+    padding: 30px 24px 44px;
   }
 
   @media (min-width: 1368px) {
@@ -59,28 +58,53 @@
 }
 
 .certificate_text {
-  font-size: var(--fs_xlarge);
+  font-size: 22px;
   font-style: normal;
   font-weight: 600;
   line-height: normal;
-  margin-bottom: 32px;
+  margin-bottom: 16px;
+  @media (min-width: 768px) {
+    font-size: 26px;
+    margin-bottom: 24px;
+  }
+
+  @media (min-width: 1024px) {
+    margin-bottom: 32px;
+    font-size: var(--fs_xlarge);
+  }
 }
 
 .certificate_block {
-  padding: 40px 50px 32px;
-  width: 584px;
-  height: 413px;
+  padding: 20px 25px 18px;
+  width: 100%;
+  aspect-ratio: 584/413;
+  max-width: 584px;
+  height: auto;
   background-color: var(--background);
   background-image: url('../../img/certificate.webp');
   background-repeat: no-repeat;
   background-size: 100% 100%;
+
+  @media (min-width: 768px) {
+    padding: 30px 36px 24px;
+  }
+
+  @media (min-width: 920px) {
+    padding: 40px 50px 32px;
+  }
 }
 
 .certificate_block_main {
-  padding: 60px 75px 50px;
-  width: 882px;
-  height: 623px;
+  padding: 20px 25px 18px;
   margin-bottom: 48px;
+  width: 100%;
+  aspect-ratio: 882/623;
+  max-width: 882px;
+  height: auto;
+
+  @media (min-width: 1024px) {
+    padding: 60px 75px 50px;
+  }
 }
 
 .certificate_header {
@@ -472,7 +496,7 @@
   font-weight: 400;
   line-height: normal;
   margin-bottom: 14px;
-  & span {
+  & a {
     padding-right: 4px;
     font-weight: 600;
   }
@@ -521,12 +545,9 @@
   align-items: center;
   flex-shrink: 0;
   border-radius: 50%;
-  background: #e1e4f2;
-  border: 1px solid transparent;
   transition: border 0.3s ease;
 
   & svg {
-    margin-left: 4px;
     transition: transform 0.3s ease;
   }
 
@@ -636,4 +657,11 @@
   transform: translate(-50%, -50%);
   width: 76px;
   height: 55px;
+}
+
+.notion_link_wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  margin-bottom: 40px;
 }

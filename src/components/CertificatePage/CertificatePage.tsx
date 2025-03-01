@@ -78,7 +78,7 @@ export default function CertificatePage() {
   // }
 
   return (
-    <section className={styles.hero}>
+    <section className={styles.section}>
       <div className={styles.container}>
         <Link className={styles.link_wrap} href={`/`}>
           <Icon
@@ -521,7 +521,14 @@ export default function CertificatePage() {
             {!isStandartPack && (
               <>
                 <p className={styles.notion_link}>
-                  {t('CertPage.summary')} <span>{data.notionLink}</span>
+                  {t('CertPage.summary')}{' '}
+                  <a
+                    href={data.notionLink}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    {data.notionLink}
+                  </a>
                 </p>
                 <p className={styles.average_grade}>
                   {t('CertPage.averageGrade')} <span>{data.averageGrade}</span>
@@ -532,38 +539,57 @@ export default function CertificatePage() {
           <div
             className={`${styles.certificate_block} ${styles.certificate_block_video}`}
           >
-            {!isStandartPack && (
-              <div className={styles.certificate_video_main_wrap}>
-                <h2 className={styles.card_header}>
-                  {t('CertPage.videoReview')}
-                </h2>
-                <div className={styles.video_wrap}>
-                  <iframe
-                    className={styles.video}
-                    // src={`https://www.youtube.com/embed/${
-                    //   vacancy.YouTubeID
-                    // }?autoplay=${showVideo ? '1' : '0'}&modestbranding=1`}
-                    // allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowFullScreen
-                    title="YouTube video"
-                  />
-                  {!showVideo && <div className={styles.video_box}></div>}
-                  <button
-                    type="button"
-                    className={`${styles.video_icon} ${
-                      showVideo && styles.video_icon_show
-                    }`}
-                    onClick={handleShowVideo}
-                  >
-                    <Icon name="icon-video" width={44} height={44} />
-                  </button>
+            <div className={styles.certificate_video_main_wrap}>
+              {!isStandartPack ? (
+                <>
+                  <h2 className={styles.card_header}>
+                    {t('CertPage.videoReview')}
+                  </h2>
+                  <div className={styles.video_wrap}>
+                    <iframe
+                      className={styles.video}
+                      // src={`https://www.youtube.com/embed/${
+                      //   vacancy.YouTubeID
+                      // }?autoplay=${showVideo ? '1' : '0'}&modestbranding=1`}
+                      // allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                      allowFullScreen
+                      title="YouTube video"
+                    />
+                    {!showVideo && <div className={styles.video_box}></div>}
+                    <button
+                      type="button"
+                      className={`${styles.video_icon} ${
+                        showVideo && styles.video_icon_show
+                      }`}
+                      onClick={handleShowVideo}
+                    >
+                      <Icon name="icon-video" width={44} height={44} />
+                    </button>
+                  </div>
+                </>
+              ) : (
+                <div className={styles.notion_link_wrap}>
+                  <p className={styles.notion_link}>
+                    {t('CertPage.summary')}{' '}
+                    <a
+                      href={data.notionLink}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      {data.notionLink}
+                    </a>
+                  </p>
+                  <p className={styles.average_grade}>
+                    {t('CertPage.averageGrade')}{' '}
+                    <span>{data.averageGrade}</span>
+                  </p>
                 </div>
-                <p className={styles.academy_text}>
-                  {t('CertPage.academy')}{' '}
-                  <span>{t('CertPage.academySecond')}</span>
-                </p>
-              </div>
-            )}
+              )}
+              <p className={styles.academy_text}>
+                {t('CertPage.academy')}{' '}
+                <span>{t('CertPage.academySecond')}</span>
+              </p>
+            </div>
             <div className={styles.certificate_video_seo_wrap}>
               <p className={styles.certificate_video_seo_text}>
                 <span className={styles.certificate_video_seo_name}>

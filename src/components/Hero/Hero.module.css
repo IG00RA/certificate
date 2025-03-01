@@ -2,6 +2,77 @@
   width: 100%;
 }
 
+@property --x1 {
+  syntax: '<percentage>';
+  inherits: false;
+  initial-value: 81.67%;
+}
+@property --y1 {
+  syntax: '<percentage>';
+  inherits: false;
+  initial-value: 0%;
+}
+@property --x2 {
+  syntax: '<percentage>';
+  inherits: false;
+  initial-value: 36.06%;
+}
+@property --y2 {
+  syntax: '<percentage>';
+  inherits: false;
+  initial-value: 67.27%;
+}
+@property --x3 {
+  syntax: '<percentage>';
+  inherits: false;
+  initial-value: 0%;
+}
+@property --y3 {
+  syntax: '<percentage>';
+  inherits: false;
+  initial-value: 1.2%;
+}
+@property --x4 {
+  syntax: '<percentage>';
+  inherits: false;
+  initial-value: 4.67%;
+}
+@property --y4 {
+  syntax: '<percentage>';
+  inherits: false;
+  initial-value: 98.91%;
+}
+@property --x5 {
+  syntax: '<percentage>';
+  inherits: false;
+  initial-value: 100%;
+}
+@property --y5 {
+  syntax: '<percentage>';
+  inherits: false;
+  initial-value: 29.26%;
+}
+@property --x6 {
+  syntax: '<percentage>';
+  inherits: false;
+  initial-value: 54.97%;
+}
+@property --y6 {
+  syntax: '<percentage>';
+  inherits: false;
+  initial-value: 0%;
+}
+@property --x7 {
+  syntax: '<percentage>';
+  inherits: false;
+  initial-value: 41.93%;
+}
+@property --y7 {
+  syntax: '<percentage>';
+  inherits: false;
+  initial-value: 94.9%;
+}
+
 .container {
   position: relative;
   margin: 0 auto;
@@ -11,78 +82,172 @@
   display: flex;
   flex-direction: column;
   overflow: hidden;
-  display: flex;
   padding: 32px 24px 85px;
-  flex-direction: column;
   align-items: center;
   gap: 16px;
   border-radius: 24px;
   background-color: #efebff;
+
+  --x1: 81.67%;
+  --y1: 0%;
+  --x2: 36.06%;
+  --y2: 67.27%;
+  --x3: 0%;
+  --y3: 1.2%;
+  --x4: 4.67%;
+  --y4: 98.91%;
+  --x5: 100%;
+  --y5: 29.26%;
+  --x6: 54.97%;
+  --y6: 0%;
+  --x7: 41.93%;
+  --y7: 94.9%;
+
   background-image: radial-gradient(
-      at 81.67364903798222% 0%,
+      at var(--x1) var(--y1),
       hsla(267, 76%, 84%, 1) 0px,
       transparent 50%
     ),
     radial-gradient(
-      at 36.06169308461875% 67.27302122185729%,
+      at var(--x2) var(--y2),
       hsla(180, 100%, 87%, 1) 0px,
       transparent 50%
     ),
     radial-gradient(
-      at 0% 1.2025102699732102%,
+      at var(--x3) var(--y3),
       hsla(277, 100%, 78%, 1) 0px,
       transparent 50%
     ),
     radial-gradient(
-      at 4.675301299876857% 98.91214140800518%,
+      at var(--x4) var(--y4),
       hsla(236, 90%, 80%, 1) 0px,
       transparent 50%
     ),
     radial-gradient(
-      at 100% 29.265500333411932%,
+      at var(--x5) var(--y5),
       hsla(222, 89%, 70%, 1) 0px,
       transparent 50%
     ),
     radial-gradient(
-      at 54.97119952021575% 0%,
+      at var(--x6) var(--y6),
       hsla(277, 97%, 87%, 1) 0px,
       transparent 50%
     ),
     radial-gradient(
-      at 41.930134133346314% 94.90431743799135%,
+      at var(--x7) var(--y7),
       hsla(194, 99%, 73%, 1) 0px,
       transparent 50%
     );
-  transition: background-position 1176.4705882352941s ease;
-  animation: gradient-animation 1176.4705882352941s ease infinite;
 
-  @media (min-width: 768px) {
-    padding: 60px 80px;
-  }
-
-  @media (min-width: 1024px) {
-    border-radius: 40px;
-    padding: 120px 80px;
-  }
-
-  @media (min-width: 1368px) {
-    padding: 156px 116px;
-  }
-
-  @media (min-width: 1408px) {
-    max-width: var(--desktop);
-  }
+  will-change: background-image;
+  animation: gradient-animation 15s ease-in-out infinite;
+  transition: --x1 0.3s, --y1 0.3s, --x2 0.3s, --y2 0.3s, --x3 0.3s, --y3 0.3s,
+    --x4 0.3s, --y4 0.3s, --x5 0.3s, --y5 0.3s, --x6 0.3s, --y6 0.3s, --x7 0.3s,
+    --y7 0.3s;
 }
 
 @keyframes gradient-animation {
   0% {
-    background-position: 0% 50%;
+    --x1: 81.67%;
+    --y1: 0%;
+    --x2: 36.06%;
+    --y2: 67.27%;
+    --x3: 0%;
+    --y3: 1.2%;
+    --x4: 4.67%;
+    --y4: 98.91%;
+    --x5: 100%;
+    --y5: 29.26%;
+    --x6: 54.97%;
+    --y6: 0%;
+    --x7: 41.93%;
+    --y7: 94.9%;
+  }
+  25% {
+    --x1: 50%;
+    --y1: 25%;
+    --x2: 75%;
+    --y2: 50%;
+    --x3: 25%;
+    --y3: 10%;
+    --x4: 30%;
+    --y4: 75%;
+    --x5: 80%;
+    --y5: 15%;
+    --x6: 60%;
+    --y6: 20%;
+    --x7: 20%;
+    --y7: 80%;
   }
   50% {
-    background-position: 100% 50%;
+    --x1: 20%;
+    --y1: 50%;
+    --x2: 80%;
+    --y2: 20%;
+    --x3: 50%;
+    --y3: 80%;
+    --x4: 90%;
+    --y4: 10%;
+    --x5: 30%;
+    --y5: 70%;
+    --x6: 10%;
+    --y6: 90%;
+    --x7: 70%;
+    --y7: 30%;
+  }
+  75% {
+    --x1: 50%;
+    --y1: 75%;
+    --x2: 25%;
+    --y2: 40%;
+    --x3: 75%;
+    --y3: 60%;
+    --x4: 60%;
+    --y4: 25%;
+    --x5: 40%;
+    --y5: 85%;
+    --x6: 80%;
+    --y6: 50%;
+    --x7: 30%;
+    --y7: 10%;
   }
   100% {
-    background-position: 0% 50%;
+    --x1: 81.67%;
+    --y1: 0%;
+    --x2: 36.06%;
+    --y2: 67.27%;
+    --x3: 0%;
+    --y3: 1.2%;
+    --x4: 4.67%;
+    --y4: 98.91%;
+    --x5: 100%;
+    --y5: 29.26%;
+    --x6: 54.97%;
+    --y6: 0%;
+    --x7: 41.93%;
+    --y7: 94.9%;
+  }
+}
+
+@media (min-width: 768px) {
+  .container {
+    padding: 60px 80px;
+  }
+}
+@media (min-width: 1024px) {
+  .container {
+    border-radius: 40px;
+    padding: 120px 80px;
+  }
+}
+@media (min-width: 1368px) {
+  .container {
+    padding: 156px 116px;
+  }
+}
+@media (min-width: 1408px) {
+  .container {
+    max-width: var(--desktop);
   }
 }
 
@@ -244,6 +409,11 @@
   height: auto;
   aspect-ratio: 128/90;
   background-color: black;
+  background-image: url('../../img/certificate_preview.webp');
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  border-radius: 18px;
+  overflow: hidden;
   margin-bottom: 4px;
 
   @media (min-width: 768px) {
