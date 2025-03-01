@@ -30,6 +30,7 @@ export default function ModalComponent({
       className={styles.modal}
       overlayClassName={styles.overlay}
     >
+      <div onClick={onClose} className={styles.icon_close}></div>
       {children}
     </Modal>
   );

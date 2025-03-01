@@ -95,12 +95,17 @@
 }
 
 .certificate_block_main {
+  cursor: pointer;
   padding: 20px 25px 18px;
   margin-bottom: 48px;
   width: 100%;
   aspect-ratio: 882/623;
   max-width: 882px;
   height: auto;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 
   @media (min-width: 1024px) {
     padding: 60px 75px 50px;

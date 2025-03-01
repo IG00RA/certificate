@@ -408,7 +408,7 @@
   width: 128px;
   height: auto;
   aspect-ratio: 128/90;
-  background-color: black;
+  background-color: var(--back_color);
   background-image: url('../../img/certificate_preview.webp');
   background-repeat: no-repeat;
   background-size: 100% 100%;

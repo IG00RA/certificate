@@ -11,6 +11,7 @@ import { useState } from 'react';
 import MainButton from '../Buttons/MainButton';
 import Icon from '@/helpers/Icon';
 import Link from 'next/link';
+import ModalComponent from '../Modals/ModalComponent';
 
 const data = {
   id: '12345678',
@@ -44,9 +45,28 @@ export default function CertificatePage() {
 
   const [isStandartPack, setIsStandartPack] = useState(data.isStandart);
   const [showVideo, setShowVideo] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
 
   const handleShowVideo = () => {
     setShowVideo(true);
+  };
+
+  const openModal = () => {
+    setIsOpen(true);
+
+    if (typeof document !== 'undefined') {
+      document.body.style.overflow = 'hidden';
+      document.body.style.touchAction = 'none';
+    }
+  };
+
+  const closeModal = () => {
+    setIsOpen(false);
+
+    if (typeof document !== 'undefined') {
+      document.body.style.overflow = 'auto';
+      document.body.style.touchAction = 'auto';
+    }
   };
 
   // if (loading) {
@@ -92,6 +112,7 @@ export default function CertificatePage() {
         </Link>
         <h2 className={styles.certificate_text}>{t('CertPage.certificate')}</h2>
         <div
+          onClick={openModal}
           className={`${styles.certificate_block} ${styles.certificate_block_main}`}
         >
           <h2 className={styles.certificate_header}>
@@ -622,6 +643,78 @@ export default function CertificatePage() {
           </div>
         </div>
       </div>
+
+      <ModalComponent isOpen={isOpen} onClose={closeModal}>
+        <div
+          className={`${styles.certificate_block} ${styles.certificate_block_main}`}
+        >
+          <h2 className={styles.certificate_header}>
+            {t('CertPage.certificate')}
+          </h2>
+          <p className={styles.certificate_id}>
+            {t('CertPage.certId')} <span>{data.id}</span>
+          </p>
+          <p className={styles.certificate_name_text}>
+            {t('CertPage.nameText')}
+          </p>
+          <h2 className={styles.certificate_name}>{data.fullName}</h2>
+          <p className={styles.certificate_name_bottom_text}>
+            {t('CertPage.nameBottomText')}
+          </p>
+          <div className={styles.period_wrap}>
+            <p className={styles.certificate_thread}>
+              {t('CertPage.thread')} <span>{data.thread}</span>
+            </p>
+            <p className={styles.certificate_period}>
+              {t('CertPage.period')} <span>{data.period}</span>
+            </p>
+          </div>
+          <p className={styles.certificate_format}>
+            {t('CertPage.format')} <span>{data.format}</span>
+          </p>
+          <div className={styles.certificate_bottom_wrap}>
+            <div className={styles.certificate_qr}>
+              <Image
+                src={qr}
+                alt="Mustage qr code"
+                className={styles.qr_code}
+                width={0}
+                height={0}
+                sizes="100vw"
+              />
+            </div>
+            <div className={styles.certificate_seo_wrap}>
+              <p className={styles.certificate_seo_text}>
+                <span className={styles.certificate_seo_name}>
+                  {t('CertPage.seoName')}
+                </span>{' '}
+                {t('CertPage.seoText')}
+              </p>
+              <div className={styles.certificate_stamp_wrap}>
+                <Image
+                  src={stamp}
+                  alt="Mustage stamp"
+                  className={styles.stamp}
+                  width={0}
+                  height={0}
+                  sizes="100vw"
+                />
+                <p className={styles.certificate_stamp_id}>
+                  {t('CertPage.certId')} <span>{data.id}</span>
+                </p>
+                <Image
+                  src={seo_sign}
+                  alt="SEO sign"
+                  className={styles.sign}
+                  width={0}
+                  height={0}
+                  sizes="100vw"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </ModalComponent>
     </section>
   );
 }

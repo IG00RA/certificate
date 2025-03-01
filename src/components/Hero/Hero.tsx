@@ -6,6 +6,7 @@ import { useTranslations } from 'next-intl';
 import { useState } from 'react';
 import MainButton from '../Buttons/MainButton';
 import Icon from '@/helpers/Icon';
+import Link from 'next/link';
 
 export default function Hero() {
   const t = useTranslations('');
@@ -39,7 +40,9 @@ export default function Hero() {
           />
           {isVisible && (
             <div className={styles.info_container}>
-              <div className={styles.cert_image}></div>
+              <Link href="uk/125">
+                <div className={styles.cert_image}></div>
+              </Link>
               <div className={styles.info_wrap}>
                 <p className={styles.name}>
                   Andrey Dumchev <span>(@nickname)</span>
