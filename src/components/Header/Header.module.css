@@ -73,6 +73,14 @@
     display: flex;
     gap: 12px;
     align-items: center;
+    & svg {
+      transition: fill 0.3s ease-in-out;
+
+      &:hover,
+      &:focus {
+        fill: var(--main_text_color);
+      }
+    }
   }
   @media (min-width: 1270px) {
     gap: 24px;
