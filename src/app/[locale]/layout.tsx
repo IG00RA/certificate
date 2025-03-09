@@ -34,7 +34,7 @@ export const generateMetadata = async ({
   params,
 }: Props): Promise<Metadata> => {
   const { locale } = await params;
-  const metadataValues = localeMetadata[locale] || localeMetadata.ru;
+  const metadataValues = localeMetadata[locale] || localeMetadata.uk;
 
   return {
     metadataBase: new URL(
