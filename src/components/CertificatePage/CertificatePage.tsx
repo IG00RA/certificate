@@ -1,7 +1,6 @@
 'use client';
 
 import styles from './CertificatePage.module.css';
-import Image from 'next/image';
 import { useTranslations } from 'next-intl';
 import { useState } from 'react';
 import Icon from '@/helpers/Icon';
@@ -101,7 +100,7 @@ export default function CertificatePage() {
           <span className={styles.link_text}>{t('CertPage.btnBack')}</span>
         </Link>
         <h2 className={styles.certificate_text}>{t('CertPage.certificate')}</h2>
-        <Image
+        <img
           onClick={openModal}
           src={`${hostBack}/uploads/${certificateData.uuid}/img_${certificateData.uuid}_page1.jpeg`}
           alt="Mustage certificate first page"
@@ -119,37 +118,25 @@ export default function CertificatePage() {
           {t('CertPage.certSupplement')}
         </h2>
         <div className={styles.certificate_block_wrap}>
-          <Image
+          <img
             src={`${hostBack}/uploads/${certificateData.uuid}/img_${certificateData.uuid}_page2.jpeg`}
             alt="Mustage certificate second page"
             className={styles.second_page}
-            width={0}
-            height={0}
-            sizes="100vw"
           />
-          <Image
+          <img
             src={`${hostBack}/uploads/${certificateData.uuid}/img_${certificateData.uuid}_page3.jpeg`}
             alt="Mustage certificate third page"
             className={styles.third_page}
-            width={0}
-            height={0}
-            sizes="100vw"
           />
-          <Image
+          <img
             src={`${hostBack}/uploads/${certificateData.uuid}/img_${certificateData.uuid}_page4.jpeg`}
             alt="Mustage certificate fourth page"
             className={styles.fourth_page}
-            width={0}
-            height={0}
-            sizes="100vw"
           />
-          <Image
+          <img
             src={`${hostBack}/uploads/${certificateData.uuid}/img_${certificateData.uuid}_page5.jpeg`}
             alt="Mustage certificate fifth page"
             className={styles.fifth_page}
-            width={0}
-            height={0}
-            sizes="100vw"
           />
           <div
             className={styles.certificate_block_video}
@@ -235,13 +222,10 @@ export default function CertificatePage() {
       </div>
 
       <ModalComponent isOpen={isOpen} onClose={closeModal}>
-        <Image
+        <img
           src={`${hostBack}/uploads/${certificateData.uuid}/img_${certificateData.uuid}_page1.jpeg`}
           alt="Mustage certificate first page"
           className={styles.first_page}
-          width={0}
-          height={0}
-          sizes="100vw"
         />
       </ModalComponent>
     </section>
