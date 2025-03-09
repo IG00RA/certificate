@@ -1,15 +1,12 @@
 {
   "name": {
-    "ru": "Mustage Team – История и Ценности",
-    "en": "Mustage Team – Our Story and Values"
+    "uk": "Перевірка сертифікатів Mustage Academy"
   },
   "short_name": {
-    "ru": "Mustage",
-    "en": "Mustage"
+    "uk": "MustageCertificate"
   },
   "description": {
-    "ru": "Узнайте, как Mustage Team прошла путь от небольшой команды до экосистемы в affiliate-маркетинге. Наши ценности: прозрачность, инновации и поддержка.",
-    "en": "Discover how Mustage Team evolved from a small team into an ecosystem in affiliate marketing. Our core values: transparency, innovation, and support."
+    "uk": "Перевірте справжність сертифіката студента Mustage Academy з курсу арбітражу трафіку. Дізнайтесь про успіхи студента, його кейс та рекомендації."
   },
   "icons": [
     {
@@ -25,10 +22,10 @@
       "purpose": "maskable"
     }
   ],
-  "theme_color": "#6e6bff",
-  "background_color": "#f1f1f6",
+  "theme_color": "#3773ff",
+  "background_color": "#eaf0ff",
   "display": "standalone",
-  "lang": ["ru", "en"],
-  "start_url": "/ru",
+  "lang": ["uk"],
+  "start_url": "/uk",
   "scope": "/"
 }
