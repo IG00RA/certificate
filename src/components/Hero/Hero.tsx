@@ -63,7 +63,10 @@ export default function Hero() {
 
   return (
     <section className={styles.hero}>
-      <div className={styles.container}>
+      <div
+        className={styles.container}
+        style={{ minHeight: certificateData ? 800 : undefined }}
+      >
         <h1 className={styles.hero_header}>{t('Hero.header')}</h1>
         <h3 className={styles.hero_text}>{t('Hero.text')}</h3>
         <div className={styles.input_wrap}>
