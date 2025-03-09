@@ -1,7 +1,7 @@
 /** @type {import('next').NextConfig} */
 
 import createNextIntlPlugin from 'next-intl/plugin';
-import { URL } from 'url'; // Імпортуємо модуль url для парсингу URL
+import { URL } from 'url';
 
 const withNextIntl = createNextIntlPlugin();
 
@@ -16,10 +16,15 @@ if (!backendUrl) {
 // Вилучаємо хостнейм із URL
 const backendHostname = new URL(backendUrl).hostname;
 
-// Налаштовуємо конфігурацію з дозволеними доменами для зображень
 const nextConfig = {
   images: {
-    domains: [backendHostname],
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: backendHostname,
+        pathname: '/uploads/**', // Дозволяємо всі файли в /uploads
+      },
+    ],
   },
 };
 
