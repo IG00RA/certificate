@@ -381,11 +381,22 @@
   outline: none;
 }
 
-.info_container {
+.btn_wrap {
   width: 100%;
   position: absolute;
   top: 0;
   left: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  align-items: center;
+}
+
+.info_container {
+  width: 100%;
+  /* position: absolute;
+  top: 0;
+  left: 0; */
   padding: 66px 16px 16px;
   display: flex;
   flex-direction: column;
@@ -404,12 +415,17 @@
   }
 }
 
+.error_message {
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}
+
 .cert_image {
-  width: 128px;
+  width: 52%;
   height: auto;
   aspect-ratio: 128/90;
   background-color: var(--back_color);
-  background-image: url('../../img/certificate_preview.webp');
   background-repeat: no-repeat;
   background-size: 100% 100%;
   border-radius: 18px;
@@ -467,6 +483,7 @@
 }
 
 .period {
+  margin-bottom: 4px;
   & span {
     display: inline-block;
     margin-top: 4px;
@@ -474,6 +491,8 @@
 }
 
 .status_valid {
+  display: inline-block;
+  margin-top: 4px;
   padding: 4px 12px;
   gap: 10px;
   border-radius: 100px;
@@ -487,6 +506,8 @@
 }
 
 .status_discontinued {
+  display: inline-block;
+  margin-top: 4px;
   padding: 4px 12px;
   gap: 10px;
   border-radius: 100px;
@@ -499,6 +520,8 @@
   line-height: normal;
 }
 .status_cancelled {
+  display: inline-block;
+  margin-top: 4px;
   padding: 4px 12px;
   gap: 10px;
   border-radius: 100px;
@@ -509,4 +532,37 @@
   font-style: normal;
   font-weight: 500;
   line-height: normal;
+}
+
+.dots_loading {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  background-color: #666;
+  border-radius: 50%;
+  animation: blink 1.5s infinite;
+}
+
+.dot:nth-child(2) {
+  animation-delay: 0.3s;
+}
+
+.dot:nth-child(3) {
+  animation-delay: 0.6s;
+}
+
+@keyframes blink {
+  0%,
+  80%,
+  100% {
+    opacity: 0.2;
+  }
+  40% {
+    opacity: 1;
+  }
 }

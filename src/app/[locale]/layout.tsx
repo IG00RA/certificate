@@ -12,23 +12,17 @@ const montserrat = Montserrat({
   variable: '--font_mons',
   adjustFontFallback: false,
 });
+
 const localeMetadata: Record<
   string,
   { title: string; description: string; keywords: string }
 > = {
   uk: {
-    title: 'Mustage Academy - Перевірка сертифікатів',
+    title: 'Перевірка сертифікатів Mustage Academy',
     description:
-      'Узнайте, как Mustage Team прошла путь от небольшой команды до экосистемы в affiliate-маркетинге. Наши ценности: прозрачность, инновации и поддержка.',
+      'Перевірте справжність сертифіката студента Mustage Academy з курсу арбітражу трафіку. Дізнайтесь про успіхи студента, його кейс та рекомендації.',
     keywords:
-      'Mustage Team, история компании, ценности, прозрачность, инновации, поддержка, арбитраж трафика, affiliate-маркетинг',
-  },
-  sk: {
-    title: 'Mustage Team – Our Journey, Values, and Innovations',
-    description:
-      'Discover how Mustage Team evolved from a small team into an ecosystem in affiliate marketing. Our core values: transparency, innovation, and support.',
-    keywords:
-      'Mustage Team, company history, values, transparency, innovation, support, traffic arbitrage, affiliate marketing',
+      'Mustage Academy, перевірка сертифікатів, арбітраж трафіку, сертифікат студента, Mustage Team, кейс студента, affiliate-маркетинг',
   },
 };
 
@@ -44,7 +38,7 @@ export const generateMetadata = async ({
 
   return {
     metadataBase: new URL(
-      process.env.NEXT_PUBLIC_SITE_URL || 'https://mustage.team'
+      process.env.NEXT_PUBLIC_SITE_URL || 'https://verify.mustage.team'
     ),
     title: metadataValues.title,
     description: metadataValues.description,

@@ -2,8 +2,8 @@ import styles from './Icon.module.css';
 
 interface IconProps {
   name: string;
-  width?: number;
-  height?: number;
+  width?: number | string;
+  height?: number | string;
   color?: string;
   className?: string;
 }
@@ -15,11 +15,19 @@ const Icon: React.FC<IconProps> = ({
   color = 'currentColor',
   className,
 }) => {
+  // Функція для обробки розмірів
+  const getSize = (size: number | string): string => {
+    if (typeof size === 'number') {
+      return `${size}px`;
+    }
+    return size;
+  };
+
   return (
     <svg
       className={`${className} ${styles.icon}`}
-      width={width}
-      height={height}
+      width={getSize(width)}
+      height={getSize(height)}
       fill={color}
     >
       <use href={`/assets/icons.svg#${name}`} />

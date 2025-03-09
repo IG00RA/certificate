@@ -1,19 +1,7 @@
-// useCertificateData.ts
 'use client';
 
 import { useState, useEffect } from 'react';
 import { useParams } from 'next/navigation';
-
-interface Lesson {
-  lesson: string;
-  tests: number[] | null; // Значення тестів у відсотках (цілі числа) або null
-  homework: number[] | null; // Значення домашніх завдань (цілі числа) або null
-}
-
-// Тип для grades
-interface Grades {
-  lessons: Lesson[];
-}
 
 export interface CertificateData {
   uuid: string | null;
@@ -22,18 +10,16 @@ export interface CertificateData {
   startDate: string;
   endDate: string;
   tariff: string;
-  grades: Grades | null;
-  averageGradePoints: number | null;
-  recommendationsMentor: string;
-  recommendationsCurator: string;
   videoReview: string;
   caseLink: string;
+  certStatus: 'valid' | 'discontinued' | 'cancelled' | null;
+  averageGradePoints: string;
 }
 
 const hostBack = process.env.NEXT_PUBLIC_ADMIN_HOST_BACK;
 
 export function useCertificateData() {
-  const { id } = useParams(); // Отримуємо id з URL
+  const { id } = useParams();
   const [certificateData, setCertificateData] =
     useState<CertificateData | null>(null);
   const [loading, setLoading] = useState<boolean>(true);
@@ -49,6 +35,9 @@ export function useCertificateData() {
         }
         const fetchedData: CertificateData = await response.json();
 
+        // Витягуємо ID відео з URL
+        const videoId = extractYouTubeId(fetchedData.videoReview);
+
         setCertificateData({
           uuid: fetchedData.uuid,
           fullName: fetchedData.fullName,
@@ -56,12 +45,10 @@ export function useCertificateData() {
           startDate: fetchedData.startDate,
           endDate: fetchedData.endDate,
           tariff: fetchedData.tariff,
-          grades: fetchedData.grades,
-          averageGradePoints: fetchedData.averageGradePoints,
-          recommendationsMentor: fetchedData.recommendationsMentor,
-          recommendationsCurator: fetchedData.recommendationsCurator,
-          videoReview: fetchedData.videoReview,
+          videoReview: videoId,
           caseLink: fetchedData.caseLink,
+          certStatus: fetchedData.certStatus,
+          averageGradePoints: fetchedData.averageGradePoints,
         });
       } catch (err) {
         setError((err as Error).message);
@@ -76,4 +63,12 @@ export function useCertificateData() {
   }, [id]);
 
   return { certificateData, loading, error };
+}
+
+// Функція для витягування ID відео з YouTube URL
+function extractYouTubeId(url: string): string {
+  const regex =
+    /(?:https?:\/\/)?(?:www\.)?(?:youtube\.com\/(?:[^\/\n\s]+\/\S+\/|(?:v|e(?:mbed)?)\/|\S*?[?&]v=)|youtu\.be\/)([a-zA-Z0-9_-]{11})/;
+  const match = url.match(regex);
+  return match ? match[1] : '';
 }
