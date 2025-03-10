@@ -9,9 +9,13 @@ const nextConfig = {
     remotePatterns: [
       {
         protocol: 'https',
-        hostname: '**.mustage.team',
-        port: '',
-        search: '',
+        hostname: '**',
+        pathname: '**',
+      },
+      {
+        protocol: 'http',
+        hostname: '**',
+        pathname: '**',
       },
     ],
   },
