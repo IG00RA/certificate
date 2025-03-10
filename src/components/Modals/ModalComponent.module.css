@@ -4,13 +4,14 @@
   left: 50%;
   transform: translate(-50%, -50%);
   aspect-ratio: 882/623;
-  width: 70vw;
+  width: 85vw;
   max-width: 882px;
   display: flex;
   justify-content: center;
   align-items: center;
-  & > div {
-    margin: 0;
+
+  @media (min-width: 1024px) {
+    width: 70vw;
   }
 }
 
@@ -30,11 +31,18 @@
 .icon_close {
   cursor: pointer;
   position: absolute;
-  top: -25px;
-  right: -75px;
-  width: 32px;
-  height: 32px;
+  top: -37px;
+  right: -20px;
+  width: 24px;
+  height: 24px;
   display: inline-block;
+
+  @media (min-width: 768px) {
+  }
+  @media (min-width: 1024px) {
+    top: -25px;
+    right: -75px;
+  }
 }
 
 .icon_close::before,

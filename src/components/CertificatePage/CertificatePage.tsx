@@ -262,7 +262,7 @@ export default function CertificatePage() {
           <img
             src={`${hostBack}/uploads/${certificateData.uuid}/img_${certificateData.uuid}_page1.jpeg`}
             alt="Mustage certificate first page"
-            className={styles.first_page}
+            className={styles.first_page_modal}
           />
         </ModalComponent>
       </section>

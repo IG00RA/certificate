@@ -98,6 +98,14 @@
   }
 }
 
+.first_page_modal {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 882/623;
+  max-width: 882px;
+  cursor: pointer;
+}
+
 .button_text {
   margin-top: 8px;
   margin-bottom: 32px;
