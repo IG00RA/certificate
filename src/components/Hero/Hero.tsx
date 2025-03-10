@@ -8,7 +8,6 @@ import Link from 'next/link';
 
 const hostBack = process.env.NEXT_PUBLIC_ADMIN_HOST_BACK;
 
-// Типізація даних сертифіката
 interface CertificateData {
   uuid: string;
   fullName: string;
