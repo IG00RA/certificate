@@ -137,14 +137,14 @@ export default function CertificatePage() {
           </h2>
           <img
             onClick={openModal}
-            src={`${hostBack}/uploads/${certificateData.uuid}/img_${certificateData.uuid}_page1.jpeg`}
+            src={`/api/certificate/${certificateData.uuid}/img_${certificateData.uuid}_page1.jpeg`}
             onLoad={handleImageLoad}
             alt="Mustage certificate first page"
             className={styles.first_page}
           />
 
           <DownloadButton
-            link={`${hostBack}/uploads/${certificateData.uuid}/Certificate_${certificateData.uuid}.pdf`}
+            link={`/api/certificate/${certificateData.uuid}/Certificate_${certificateData.uuid}.pdf`}
           />
           <p className={styles.button_text}>{t('CertPage.btnText')}</p>
           <h2 className={styles.supplement_head_text}>
@@ -152,25 +152,25 @@ export default function CertificatePage() {
           </h2>
           <div className={styles.certificate_block_wrap}>
             <img
-              src={`${hostBack}/uploads/${certificateData.uuid}/img_${certificateData.uuid}_page2.jpeg`}
+              src={`/api/certificate/${certificateData.uuid}/img_${certificateData.uuid}_page2.jpeg`}
               alt="Mustage certificate second page"
               className={styles.second_page}
               loading="lazy"
             />
             <img
-              src={`${hostBack}/uploads/${certificateData.uuid}/img_${certificateData.uuid}_page3.jpeg`}
+              src={`/api/certificate/${certificateData.uuid}/img_${certificateData.uuid}_page3.jpeg`}
               alt="Mustage certificate third page"
               className={styles.third_page}
               loading="lazy"
             />
             <img
-              src={`${hostBack}/uploads/${certificateData.uuid}/img_${certificateData.uuid}_page4.jpeg`}
+              src={`/api/certificate/${certificateData.uuid}/img_${certificateData.uuid}_page4.jpeg`}
               alt="Mustage certificate fourth page"
               className={styles.fourth_page}
               loading="lazy"
             />
             <img
-              src={`${hostBack}/uploads/${certificateData.uuid}/img_${certificateData.uuid}_page5.jpeg`}
+              src={`/api/certificate/${certificateData.uuid}/img_${certificateData.uuid}_page5.jpeg`}
               alt="Mustage certificate fifth page"
               className={styles.fifth_page}
               loading="lazy"
@@ -178,7 +178,7 @@ export default function CertificatePage() {
             <div
               className={styles.certificate_block_video}
               style={{
-                backgroundImage: `url(${hostBack}/uploads/${certificateData.uuid}/img_${certificateData.uuid}_page6.jpeg)`,
+                backgroundImage: `url(/api/certificate/${certificateData.uuid}/img_${certificateData.uuid}_page6.jpeg)`,
               }}
             >
               {certificateData.tariff === 'pro' ? (
@@ -206,7 +206,7 @@ export default function CertificatePage() {
             <div
               className={styles.certificate_block_video}
               style={{
-                backgroundImage: `url(${hostBack}/uploads/${certificateData.uuid}/img_${certificateData.uuid}_page7.jpeg)`,
+                backgroundImage: `url(/api/certificate/${certificateData.uuid}/img_${certificateData.uuid}_page7.jpeg)`,
               }}
             >
               {certificateData.tariff === 'pro' ? (
@@ -260,7 +260,7 @@ export default function CertificatePage() {
 
         <ModalComponent isOpen={isOpen} onClose={closeModal}>
           <img
-            src={`${hostBack}/uploads/${certificateData.uuid}/img_${certificateData.uuid}_page1.jpeg`}
+            src={`/api/certificate/${certificateData.uuid}/img_${certificateData.uuid}_page1.jpeg`}
             alt="Mustage certificate first page"
             className={styles.first_page_modal}
           />

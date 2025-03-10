@@ -5,19 +5,19 @@ import createNextIntlPlugin from 'next-intl/plugin';
 const withNextIntl = createNextIntlPlugin();
 
 const nextConfig = {
-  images: {
-    remotePatterns: [
+  experimental: {
+    serverActions: {
+      bodySizeLimit: '50mb',
+    },
+  },
+  async redirects() {
+    return [
       {
-        protocol: 'https',
-        hostname: '**',
-        pathname: '**',
+        source: '/',
+        destination: '/uk',
+        permanent: false,
       },
-      {
-        protocol: 'http',
-        hostname: '**',
-        pathname: '**',
-      },
-    ],
+    ];
   },
 };
 

@@ -19,7 +19,9 @@ export interface CertificateData {
 const hostBack = process.env.NEXT_PUBLIC_ADMIN_HOST_BACK;
 
 export function useCertificateData() {
-  const { id } = useParams();
+  const params = useParams(); // Get the full params object
+  const id = params?.id; // Safely access 'id'
+
   const [certificateData, setCertificateData] =
     useState<CertificateData | null>(null);
   const [loading, setLoading] = useState<boolean>(true);
@@ -29,14 +31,15 @@ export function useCertificateData() {
     const fetchData = async () => {
       setLoading(true);
       try {
+        if (!id || typeof id !== 'string') {
+          throw new Error('Невалідний або відсутній ідентифікатор');
+        }
+
         const response = await fetch(`${hostBack}/api/certificates/${id}`);
         if (!response.ok) {
           throw new Error('Не вдалося отримати дані');
         }
         const fetchedData: CertificateData = await response.json();
-
-        // Витягуємо ID відео з URL
-        const videoId = extractYouTubeId(fetchedData.videoReview);
 
         setCertificateData({
           uuid: fetchedData.uuid,
@@ -45,7 +48,7 @@ export function useCertificateData() {
           startDate: fetchedData.startDate,
           endDate: fetchedData.endDate,
           tariff: fetchedData.tariff,
-          videoReview: videoId,
+          videoReview: fetchedData.videoReview,
           caseLink: fetchedData.caseLink,
           certStatus: fetchedData.certStatus,
           averageGradePoints: fetchedData.averageGradePoints,
@@ -63,12 +66,4 @@ export function useCertificateData() {
   }, [id]);
 
   return { certificateData, loading, error };
-}
-
-// Функція для витягування ID відео з YouTube URL
-function extractYouTubeId(url: string): string {
-  const regex =
-    /(?:https?:\/\/)?(?:www\.)?(?:youtube\.com\/(?:[^\/\n\s]+\/\S+\/|(?:v|e(?:mbed)?)\/|\S*?[?&]v=)|youtu\.be\/)([a-zA-Z0-9_-]{11})/;
-  const match = url.match(regex);
-  return match ? match[1] : '';
 }

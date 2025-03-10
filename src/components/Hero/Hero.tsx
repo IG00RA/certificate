@@ -102,47 +102,48 @@ export default function Hero() {
             )}
             {/* Дані сертифіката */}
             {certificateData && !isLoading && !error && (
-              <div className={styles.info_container}>
-                <Link href={`uk/${certificateData.uuid}`}>
+              <Link href={`uk/${certificateData.uuid}`}>
+                <div className={styles.info_container}>
                   <div
                     style={{
-                      backgroundImage: `url(${hostBack}/uploads/${certificateData.uuid}/img_${certificateData.uuid}_page1.jpeg)`,
+                      backgroundImage: `url(/api/certificate/${certificateData.uuid}/img_${certificateData.uuid}_page1_small.jpeg)`,
                     }}
                     className={styles.cert_image}
                   ></div>
-                </Link>
-                <div className={styles.info_wrap}>
-                  <p className={styles.name}>{certificateData.fullName}</p>
-                  <p className={styles.thread}>
-                    {t('Hero.thread')}{' '}
-                    <span>{certificateData.streamNumber}</span>
-                  </p>
-                  <p className={styles.period}>
-                    {t('Hero.period')}{' '}
-                    <span>
-                      {certificateData.startDate} - {certificateData.endDate}
-                    </span>
-                  </p>
-                  <p className={styles.status}>
-                    {t('Hero.status')}{' '}
-                    {certificateData.certStatus === 'valid' && (
-                      <span className={styles.status_valid}>
-                        {t('Hero.valid')}
+
+                  <div className={styles.info_wrap}>
+                    <p className={styles.name}>{certificateData.fullName}</p>
+                    <p className={styles.thread}>
+                      {t('Hero.thread')}{' '}
+                      <span>{certificateData.streamNumber}</span>
+                    </p>
+                    <p className={styles.period}>
+                      {t('Hero.period')}{' '}
+                      <span>
+                        {certificateData.startDate} - {certificateData.endDate}
                       </span>
-                    )}
-                    {certificateData.certStatus === 'discontinued' && (
-                      <span className={styles.status_discontinued}>
-                        {t('Hero.discontinued')}
-                      </span>
-                    )}
-                    {certificateData.certStatus === 'cancelled' && (
-                      <span className={styles.status_cancelled}>
-                        {t('Hero.cancelled')}
-                      </span>
-                    )}
-                  </p>
+                    </p>
+                    <p className={styles.status}>
+                      {t('Hero.status')}{' '}
+                      {certificateData.certStatus === 'valid' && (
+                        <span className={styles.status_valid}>
+                          {t('Hero.valid')}
+                        </span>
+                      )}
+                      {certificateData.certStatus === 'discontinued' && (
+                        <span className={styles.status_discontinued}>
+                          {t('Hero.discontinued')}
+                        </span>
+                      )}
+                      {certificateData.certStatus === 'cancelled' && (
+                        <span className={styles.status_cancelled}>
+                          {t('Hero.cancelled')}
+                        </span>
+                      )}
+                    </p>
+                  </div>
                 </div>
-              </div>
+              </Link>
             )}
             <MainButton
               margin={!certificateData && !isLoading && !error ? 64 : 0}
