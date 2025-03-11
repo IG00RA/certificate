@@ -10,8 +10,6 @@ import { useCertificateData } from '@/hooks/useCertificateData';
 import DownloadButton from '../Buttons/DownloadButton';
 import { setTimeout } from 'timers';
 
-const hostBack = process.env.NEXT_PUBLIC_ADMIN_HOST_BACK;
-
 export default function CertificatePage() {
   const t = useTranslations('');
   const { certificateData, loading, error } = useCertificateData();
