@@ -108,7 +108,10 @@ export default function Hero() {
             )}
             {/* Дані сертифіката */}
             {certificateData && !isLoading && !error && (
-              <Link href={`uk/${certificateData.uuid}`}>
+              <Link
+                className={styles.info_container_link}
+                href={`uk/${certificateData.uuid}`}
+              >
                 <div className={styles.info_container}>
                   <div
                     style={{

@@ -393,11 +393,13 @@
   align-items: center;
 }
 
+.info_container_link {
+  display: block;
+  width: 100%;
+}
+
 .info_container {
   width: 100%;
-  /* position: absolute;
-  top: 0;
-  left: 0; */
   padding: 66px 16px 16px;
   display: flex;
   flex-direction: column;
