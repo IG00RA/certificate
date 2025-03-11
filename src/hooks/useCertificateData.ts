@@ -17,6 +17,7 @@ export interface CertificateData {
 }
 
 const hostBack = process.env.NEXT_PUBLIC_ADMIN_HOST_BACK;
+const token = process.env.NEXT_PUBLIC_TOKEN;
 
 export function useCertificateData() {
   const params = useParams(); // Get the full params object
@@ -35,7 +36,12 @@ export function useCertificateData() {
           throw new Error('Невалідний або відсутній ідентифікатор');
         }
 
-        const response = await fetch(`${hostBack}/api/certificates/${id}`);
+        const response = await fetch(`${hostBack}/api/certificates/${id}`, {
+          method: 'GET',
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        });
         if (!response.ok) {
           throw new Error('Не вдалося отримати дані');
         }
