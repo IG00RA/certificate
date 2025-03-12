@@ -464,6 +464,9 @@
   line-height: normal;
 
   & span {
+    color: var(--main_text_color);
+    white-space: nowrap;
+    text-align: center;
     font-size: var(--fs_small);
     font-style: normal;
     font-weight: 500;

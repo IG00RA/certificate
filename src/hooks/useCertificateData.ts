@@ -10,6 +10,7 @@ export interface CertificateData {
   startDate: string;
   endDate: string;
   tariff: string;
+  tgNick: string;
   videoReview: string;
   caseLink: string;
   certStatus: 'valid' | 'discontinued' | 'cancelled' | null;
@@ -54,6 +55,7 @@ export function useCertificateData() {
           startDate: fetchedData.startDate,
           endDate: fetchedData.endDate,
           tariff: fetchedData.tariff,
+          tgNick: fetchedData.tgNick,
           videoReview: fetchedData.videoReview,
           caseLink: fetchedData.caseLink,
           certStatus: fetchedData.certStatus,

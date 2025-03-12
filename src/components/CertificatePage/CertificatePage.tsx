@@ -2,7 +2,7 @@
 
 import styles from './CertificatePage.module.css';
 import { useTranslations } from 'next-intl';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Icon from '@/helpers/Icon';
 import Link from 'next/link';
 import ModalComponent from '../Modals/ModalComponent';
@@ -133,6 +133,24 @@ export default function CertificatePage() {
           <h2 className={styles.certificate_text}>
             {t('CertPage.certificate')}
           </h2>
+          <p className={styles.status}>
+            {t('Hero.status')}{' '}
+            {certificateData.certStatus === 'valid' && (
+              <span className={styles.status_valid}> {t('Hero.valid')}</span>
+            )}
+            {certificateData.certStatus === 'discontinued' && (
+              <span className={styles.status_discontinued}>
+                {' '}
+                {t('Hero.discontinued')}
+              </span>
+            )}
+            {certificateData.certStatus === 'cancelled' && (
+              <span className={styles.status_cancelled}>
+                {' '}
+                {t('Hero.cancelled')}
+              </span>
+            )}
+          </p>
           <img
             onClick={openModal}
             src={`/api/certificate/${certificateData.uuid}/img_${certificateData.uuid}_page1.jpeg`}
@@ -179,7 +197,8 @@ export default function CertificatePage() {
                 backgroundImage: `url(/api/certificate/${certificateData.uuid}/img_${certificateData.uuid}_page6.jpeg)`,
               }}
             >
-              {certificateData.tariff === 'pro' ? (
+              {certificateData.tariff === 'pro' ||
+              certificateData.tariff === 'base' ? (
                 <div className={styles.case_link_wrap}>
                   <p className={styles.notion_link}>
                     {t('CertPage.summary')}{' '}
@@ -207,7 +226,8 @@ export default function CertificatePage() {
                 backgroundImage: `url(/api/certificate/${certificateData.uuid}/img_${certificateData.uuid}_page7.jpeg)`,
               }}
             >
-              {certificateData.tariff === 'pro' ? (
+              {certificateData.tariff === 'pro' ||
+              certificateData.tariff === 'base' ? (
                 <div className={styles.video_main_wrap}>
                   <div className={styles.video_wrap}>
                     <iframe

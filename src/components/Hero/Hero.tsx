@@ -15,6 +15,7 @@ interface CertificateData {
   streamNumber: number;
   startDate: string;
   endDate: string;
+  tgNick: string;
   certStatus: 'valid' | 'discontinued' | 'cancelled';
 }
 
@@ -121,7 +122,12 @@ export default function Hero() {
                   ></div>
 
                   <div className={styles.info_wrap}>
-                    <p className={styles.name}>{certificateData.fullName}</p>
+                    <p className={styles.name}>
+                      {certificateData.fullName}{' '}
+                      {certificateData.tgNick && (
+                        <span>(@{certificateData.tgNick})</span>
+                      )}
+                    </p>
                     <p className={styles.thread}>
                       {t('Hero.thread')}{' '}
                       <span>{certificateData.streamNumber}</span>
