@@ -2,7 +2,7 @@
 
 import styles from './CertificatePage.module.css';
 import { useTranslations } from 'next-intl';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import Icon from '@/helpers/Icon';
 import Link from 'next/link';
 import ModalComponent from '../Modals/ModalComponent';
